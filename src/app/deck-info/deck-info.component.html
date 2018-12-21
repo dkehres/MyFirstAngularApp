@@ -1,0 +1,25 @@
+<div class="container color-dark">
+  <div class="col">
+    <p>Add info about your deck</p>
+  </div>
+  <div class="col">
+    <p>Your deck({{cardCount}})</p>
+  </div>
+</div>
+
+<div class="container color-light" [@cardAdded]="cards.length">
+  <div class="col">
+    <p>Enter a card name</p>
+    <form>
+      <input type=text class="txt" name="item" placeholder="Card Name..." [(ngModel)]="cardName">
+      <input type="number" class="txt" name="item1" [(ngModel)]="cardQuantity">
+      <input type="submit" class="btn" value="Add card" (click)="addCard()">
+    </form>
+
+  </div>
+  <div class="col">
+    <p class="deck-list" *ngFor="let card of cards; let i = index" (click)="removeCard(i)">
+      {{ card }}
+    </p>
+  </div>
+</div>
