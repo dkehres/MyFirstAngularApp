@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { stringify } from '@angular/core/src/util';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
-import {DataService} from '../data.service';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-home',
@@ -36,7 +36,7 @@ export class DeckInfoComponent implements OnInit {
 
   cardCount: number;
   cardName: string = '';
-  cardQuantity: number = 1;
+  cardQuantity: number;
   cards = [];
 
   constructor(private _data: DataService) { }
@@ -45,13 +45,24 @@ export class DeckInfoComponent implements OnInit {
     this._data.card.subscribe(res => this.cards = res)
     this.cardCount = this.cards.length;
     this._data.changeDeck(this.cards);
-  }
 
+
+    $(document).ready(function () {
+      $('ul.nav > li').click(function (e) {
+        e.preventDefault();
+        $('ul.nav > li').removeClass('active');
+        $(this).addClass('active');
+      });
+    });
+  }
   addCard() {
     if (this.cardName != '') {
+      if ((this.cardQuantity < 1) || (this.cardQuantity == null)) {
+        this.cardQuantity = 1;
+      }
       this.cards.push(this.cardName + ' x' + this.cardQuantity);
       this.cardName = '';
-      this.cardQuantity = 1;
+      this.cardQuantity = null;
       this.cardCount = this.cards.length;
     }
   }

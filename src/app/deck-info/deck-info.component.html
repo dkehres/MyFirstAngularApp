@@ -1,25 +1,35 @@
 <div class="container color-dark">
-  <div class="col">
-    <p>Add info about your deck</p>
+  <div class="row">
+  <div class="col-6">
+    <h4>Add info about your deck</h4>
   </div>
-  <div class="col">
-    <p>Your deck({{cardCount}})</p>
+  <div class="col-6">
+    <h4>Your deck({{cardCount}})</h4>
   </div>
+</div>
 </div>
 
 <div class="container color-light" [@cardAdded]="cards.length">
-  <div class="col">
-    <p>Enter a card name</p>
+  <div class ="row">
+  <div class="col-6">
     <form>
-      <input type=text class="txt" name="item" placeholder="Card Name..." [(ngModel)]="cardName">
-      <input type="number" class="txt" name="item1" [(ngModel)]="cardQuantity">
-      <input type="submit" class="btn" value="Add card" (click)="addCard()">
+      <div class="form-group">
+        <label for="text">Card name:</label>
+        <input type="text" class="form-control" name="item" [(ngModel)]="cardName">
+      </div>
+      <div class="form-group">
+        <label for="number">Quantity:</label>
+        <input type="number" class="form-control" name="item1" [(ngModel)]="cardQuantity">
+        <!--<input type="submit" class="btn" value="Add card" (click)="addCard()">-->
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="addCard()">Add card</button>
     </form>
 
   </div>
-  <div class="col">
+  <div class="col-6">
     <p class="deck-list" *ngFor="let card of cards; let i = index" (click)="removeCard(i)">
       {{ card }}
     </p>
   </div>
+</div>
 </div>
