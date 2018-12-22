@@ -1,10 +1,15 @@
 <div class="container color-light">
-    <div class="col-6">
-      <h2>Join A Tournament</h2>
-      <h2>Host A Tournament</h2>
-      <h2>Tournaments Near You</h2>
-        <p>List of public tournaments near by</p>
-        <h2>Tournament History</h2>
-        <p>List of tournaments you have played in</p>
-    </div>
+  <div class="col-6">
+    <h2 (click)="goToJoinTourney()">
+      Join Tournaments
+    </h2>
+    <h2 (click)="goToHostTourney()">
+      Host Tournaments
+    </h2>
+
+    <h2>Tournaments Near You</h2>
+    <p>List of public tournaments near by</p>
+    <h2>Tournament History</h2>
+    <p>List of tournaments you have played in</p>
+  </div>
 </div>

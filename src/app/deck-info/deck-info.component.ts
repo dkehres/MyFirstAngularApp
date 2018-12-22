@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { stringify } from '@angular/core/src/util';
 import { trigger, style, transition, animate, keyframes, query, stagger } from '@angular/animations';
 import { DataService } from '../data.service';
+import {Router, ActivatedRoute} from '@angular/router'
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-deck-info',
   templateUrl: './deck-info.component.html',
   styleUrls: ['./deck-info.component.scss'],
   animations: [
@@ -39,22 +40,14 @@ export class DeckInfoComponent implements OnInit {
   cardQuantity: number;
   cards = [];
 
-  constructor(private _data: DataService) { }
+  constructor(private route: ActivatedRoute, private router: Router, private _data: DataService) { }
 
   ngOnInit() {
     this._data.card.subscribe(res => this.cards = res)
     this.cardCount = this.cards.length;
     this._data.changeDeck(this.cards);
-
-
-    $(document).ready(function () {
-      $('ul.nav > li').click(function (e) {
-        e.preventDefault();
-        $('ul.nav > li').removeClass('active');
-        $(this).addClass('active');
-      });
-    });
   }
+  
   addCard() {
     if (this.cardName != '') {
       if ((this.cardQuantity < 1) || (this.cardQuantity == null)) {
@@ -70,5 +63,9 @@ export class DeckInfoComponent implements OnInit {
   removeCard(i) {
     this.cards.splice(i, 1);
     this._data.changeDeck(this.cards);
+  }
+
+  goToTourneyInfo() {
+    this.router.navigate([''])
   }
 }

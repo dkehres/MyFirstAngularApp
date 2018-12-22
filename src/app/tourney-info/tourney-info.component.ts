@@ -3,7 +3,7 @@ import {Router, ActivatedRoute} from '@angular/router'
 import {DataService} from '../data.service';
 
 @Component({
-  selector: 'app-tourney-info',
+  selector: 'app-home',
   templateUrl: './tourney-info.component.html',
   styleUrls: ['./tourney-info.component.scss']
 })
@@ -16,10 +16,24 @@ cards: any;
 
   ngOnInit() {
     this._data.card.subscribe(res => this.cards = res);
+
+    $(document).ready(function () {
+      $("PreviousElementName").removeClass("active");//removes last manu item class
+      $('CurrentElement').addClass('active'); // adds new menu item class
+    });
   }
 
   goToDeckInfo() {
-    this.router.navigate([''])
+    this.router.navigate(['deck'])
   }
+
+  goToJoinTourney() {
+    this.router.navigate(['join'])
+  }
+
+  goToHostTourney() {
+    this.router.navigate(['host'])
+  }
+
 
 }
