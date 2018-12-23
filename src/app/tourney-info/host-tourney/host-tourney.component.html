@@ -1,9 +1,10 @@
-<div class="container color-dark">
+<div class="container color-dark col-md-4 col-md-offset-4">
   <h2>Tournament Info</h2>
 </div>
-<div class="container color-light">
-  <form class="col-6">
+<div class="container color-light col-md-4 col-md-offset-4">
+  <form>
     <div class="form-group">
+      <label for="format">Format:</label>
       <select class="form-control" id="format">
         <option>Select a format...</option>
         <option>Standard</option>
@@ -15,24 +16,36 @@
       <label for="entryFee">Entry Fee:</label>
       <input type="number" class="form-control" id="entryFee">
     </div>
-    <div class="form-check-inline">
+    <!-- <div class="form-check-inline">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" id="percent" name="optradio" value="showPercent" (click)= "checked=true; showPercent=true; showFlat=false">Percentage
+        <input type="radio" class="form-check-input" id="percent" name="optradio" value="showPercent">Percentage
       </label>
     </div>
     <div class="form-check-inline">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" id="flat" name="optradio" value="showFlat" (click)= "checked=true; showFlat=true; showPercent=false">Flat rate
+        <input type="radio" class="form-check-input" id="flat" name="optradio" value="showFlat">Flat rate
       </label>
     </div>
-    <div  id="showPercent" *ngIf="showPercent">
-      <p>Show percentage form</p>
+    <div id="showPercent" *ngIf="showPercent">
     </div>
     <div id="showFlat" *ngIf="showFlat">
       <p>Show flat rate form</p>
+    </div> -->
+    <div class="form-group">
+      <label for="entryFee">Payout per win: </label>
+      <input type="number" class="form-control" id="entryFee">
+    </div>
+    <label for="roomCodeLabel">Tournament code: </label>
+  </form>
+  <form class="form-inline">
+    <div class="form-group">
+      <input type="text" class="form-control mb-2 mr-sm-2" id="roomCodeText" [(ngModel)]="roomCode">
+      <button type="submit" class="btn btn-primary mb-2 mr-sm-2" (click)="generateRoomCode()">Randomize</button>
     </div>
   </form>
-</div>
+  <div>
+    <button type="submit" class="btn btn-success" (click)="createTourney()">Create Tournament</button>
+  </div>
 
-<!-- 
+  <!-- 
  -->

@@ -26,14 +26,19 @@ export class HostTourneyComponent implements OnInit {
       // });
 
 
-      $('div').on('show',function (e){
-        $('input').removeAttr('checked').removeProp('checked');
-        $(this).find('input').attr('checked','checked').prop('checked','checked');
-      });
-      // $(document).on('click', 'label[id="flatLabel"]', function (event) {
-      //   document.getElementById('percentOpts').style.display = 'none';
-      //   document.getElementById('flatOpts').style.display = '';
+      // $('div').on('show',function (e){
+      //   $('input').removeAttr('checked').removeProp('checked');
+      //   $(this).find('input').attr('checked','checked').prop('checked','checked');
       // });
+      $(document).on('click', 'input[id="flat"]', function (event) {
+        this.showPercent=true;
+        this.showFlat=false
+      });
+
+      $(document).on('click', 'input[id="percent"]', function (event) {
+        this.showPercent=false;
+        this.showFlat=true 
+      });
     });
   }
 
