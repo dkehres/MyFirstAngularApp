@@ -1,3 +1,29 @@
-<p>
-  host-tourney works!
-</p>
+<div class="container color-dark">
+  <h2>Tournament Info</h2>
+</div>
+<div class="container color-light">
+  <form class="col-6">
+    <div class="form-group">
+      <select class="form-control" id="format">
+        <option>Select a format...</option>
+        <option>Standard</option>
+        <option>Modern</option>
+        <option>Commander/EDH</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="entryFee">Entry Fee:</label>
+      <input type="number" class="form-control" id="entryFee">
+    </div>
+    <div class="form-check-inline">
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" id="percent" name="optradio" value="Percentage" checked>Percentage
+      </label>
+    </div>
+    <div class="form-check-inline">
+        <label class="form-check-label">
+          <input type="radio" class="form-check-input" id="flat" name="optradio" value="Flat rate">Flat rate
+        </label>
+      </div>
+  </form>
+</div>

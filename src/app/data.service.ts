@@ -10,7 +10,7 @@ private cards = new BehaviorSubject<any>(['Viscera Seer x1','Kitchen Finks x2'])
 card = this.cards.asObservable();
 
   constructor() { }
-
+ 
   changeDeck(card) {
     this.cards.next(card);
   }

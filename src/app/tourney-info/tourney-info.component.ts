@@ -17,10 +17,10 @@ cards: any;
   ngOnInit() {
     this._data.card.subscribe(res => this.cards = res);
 
-    $(document).ready(function () {
-      $("PreviousElementName").removeClass("active");//removes last manu item class
-      $('CurrentElement').addClass('active'); // adds new menu item class
-    });
+    // $(document).ready(function () {
+    //   $("PreviousElementName").removeClass("active");//removes last manu item class
+    //   $('CurrentElement').addClass('active'); // adds new menu item class
+    // });
   }
 
   goToDeckInfo() {
