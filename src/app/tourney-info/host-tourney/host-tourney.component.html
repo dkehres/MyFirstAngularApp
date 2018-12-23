@@ -17,13 +17,22 @@
     </div>
     <div class="form-check-inline">
       <label class="form-check-label">
-        <input type="radio" class="form-check-input" id="percent" name="optradio" value="Percentage" checked>Percentage
+        <input type="radio" class="form-check-input" id="percent" name="optradio" value="showPercent" (click)= "checked=true; showPercent=true; showFlat=false">Percentage
       </label>
     </div>
     <div class="form-check-inline">
-        <label class="form-check-label">
-          <input type="radio" class="form-check-input" id="flat" name="optradio" value="Flat rate">Flat rate
-        </label>
-      </div>
+      <label class="form-check-label">
+        <input type="radio" class="form-check-input" id="flat" name="optradio" value="showFlat" (click)= "checked=true; showFlat=true; showPercent=false">Flat rate
+      </label>
+    </div>
+    <div  id="showPercent" *ngIf="showPercent">
+      <p>Show percentage form</p>
+    </div>
+    <div id="showFlat" *ngIf="showFlat">
+      <p>Show flat rate form</p>
+    </div>
   </form>
 </div>
+
+<!-- 
+ -->
